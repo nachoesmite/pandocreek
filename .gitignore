@@ -1,1 +1,5 @@
-output/*
+output/author
+output/category
+output/feeds
+output/theme
+output/*.html
