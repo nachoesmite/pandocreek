@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pandocreek"
+version = "0.1.0"
+description = ""
+authors = ["nacho <nacho@pinarlabs.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pelican = "^4.10.1"
+markdown = "^3.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
