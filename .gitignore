@@ -3,3 +3,5 @@ output/category
 output/feeds
 output/theme
 output/*.html
+__pycache__/pelicanconf.cpython-311.pyc
+__pycache__/publishconf.cpython-311.pyc
