@@ -13,33 +13,161 @@
                 <header id="banner" class="body">
                         <h1><a href="https://pandocreek.com/">pandocreek</a></h1>
                         <nav><ul>
-                                                <li><a href="https://pandocreek.com/category/review.html">Review</a></li>
+                                        <li><a href="/">Home</a></li>
+                                                <li><a href="https://pandocreek.com/category/about.html">About</a></li>
+                                                <li><a href="https://pandocreek.com/category/neural-networks.html">Neural Networks</a></li>
                         </ul></nav>
                 </header><!-- /#banner -->
 
                 <aside id="featured" class="body">
                     <article>
-                        <h1 class="entry-title"><a href="https://pandocreek.com/my-first-review.html">My First Review</a></h1>
+                        <h1 class="entry-title"><a href="https://pandocreek.com/beam-search.html">Beam Search</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2024-11-12T10:20:00-03:00">
-                Published: Tue 12 November 2024
+        <abbr class="published" title="2024-11-13T10:20:00-03:00">
+                Published: Wed 13 November 2024
         </abbr>
 
                 <address class="vcard author">
                         By                                 <a class="url fn" href="https://pandocreek.com/author/nacho-esmite.html">nacho esmite</a>
                 </address>
-        <p>In <a href="https://pandocreek.com/category/review.html">Review</a>.</p>
+        <p>In <a href="https://pandocreek.com/category/neural-networks.html">Neural Networks</a>.</p>
         
-</footer><!-- /.post-info --><p>Following is a review of my favorite mechanical keyboard. test</p>                    </article>
+</footer><!-- /.post-info --><p>Hi folks! In this post I'm doing a summary of Beam Search so I can understand it better and hopefully help someone :) 
+Beam search is a heuristic search algorithm used in sequence problems such as translation, text generation, or voice recognition. It is an improvement
+over breadth-first search.</p>
+<h2>How it works?</h2>
+<p>At each step of the process, <em>beam search</em> keeps a limited set of sequences that seem promising given a score or probability. 
+This set is called the <em>beam</em> and its size is controlled by a parameter called <em>beam width</em>, usually represented by the character <code>K</code>.</p>
+<h3>Steps to create a sequence</h3>
+<ol>
+<li>We start with the initial state, which could be &lt;start&gt; or the tag that you are using.</li>
+<li><strong>Expansion:</strong> Generate all possible words or tokens given the current sequences. At the starting point, it is <em>&lt;start&gt;</em> + all the tokens in the vocabulary.</li>
+<li><strong>Selection:</strong> Get a score for each extended sequence and pick the <strong>K</strong> best.</li>
+<li><strong>Repeat:</strong> Repeat the process until you reach &lt;stop&gt; or a "stop" token you define.</li>
+</ol>
+<h2>Whiteboard explanation</h2>
+<p><img alt="Beam Search Diagram" src="draws/beam_search.png"></p>
+<h2>In other words 👨🏻‍💼:</h2>
+<p>Let's say we have the following set at a given time <strong>t</strong>, and let's call that set <strong>C</strong> for candidates.</p>
+<div class="math">$$
+C_t = \{ (x_1^1, \dots, x_t^1), \dots, (x_1^K, \dots, x_t^K) \}
+$$</div>
+<p>
+At time <strong>t+1</strong> we have <span class="math">\(\tilde{C} _{t+1}\)</span> which expands <span class="math">\(C_t\)</span>:</p>
+<div class="math">$$
+\tilde{C_{t+1}} =  \{ (x_1^k, \dots, x_t^k, v_1), \dots, (x_1^k, \dots, x_t^k, v_{|V|}) \}
+$$</div>
+<p>This gives us a set of size: K*|V|, where |V| is the size of the vocabulary; here we need to pick again the best <strong>K</strong> candidates. 
+In seq2seq architectures the size is usually K*K, but it depends on the implementation. </p>
+<h2>Benefits</h2>
+<ul>
+<li>Balance between exploration and efficiency: Does not explore all options, but is better than greedy search.</li>
+<li>Precision: Usually gets better sequences than other simpler strategies.</li>
+</ul>
+<h2>Cons</h2>
+<ul>
+<li>Does not guarantee a global optimum.</li>
+<li>Computationally Expensive: Requires more calculations than simpler strategies.</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>                    </article>
                 </aside><!-- /#featured -->
+                    <section id="content" class="body">
+                        <h1>Other articles</h1>
+                        <hr />
+                        <ol id="posts-list" class="hfeed">
+
+                <li><article class="hentry">
+                    <header>
+                        <h1><a href="https://pandocreek.com/about.html" rel="bookmark"
+                               title="Permalink to About">About</a></h1>
+                    </header>
+
+                    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2024-11-13T00:00:00-03:00">
+                Published: Wed 13 November 2024
+        </abbr>
+
+                <address class="vcard author">
+                        By                                 <a class="url fn" href="https://pandocreek.com/author/nacho-esmite.html">nacho esmite</a>
+                </address>
+        <p>In <a href="https://pandocreek.com/category/about.html">About</a>.</p>
+        
+</footer><!-- /.post-info -->                        <p>Hi, I’m Nacho, a Software Engineer passionate about machine learning, data, algorithms, and cloud infrastructure. I've worked at amazing companies like Mulesoft, Salesforce, Auth0, Asapp and Zuplo, taking on roles from developer to director of engineering.</p>
+<p>Currently, I’m exploring machine learning, large language models, and cloud technologies. I …</p>
+                        <a class="readmore" href="https://pandocreek.com/about.html">read more</a>
+                    </div><!-- /.entry-content -->
+                </article></li>
+                    </ol><!-- /#posts-list -->
+                    </section><!-- /#content -->
                 <section id="extras" class="body">
                                 <div class="blogroll">
                                         <h2>links</h2>
                                         <ul>
-                                                        <li><a href="https://getpelican.com/">Pelican</a></li>
-                                                        <li><a href="https://www.python.org/">Python.org</a></li>
-                                                        <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
-                                                        <li><a href="#">You can modify those links in your config file</a></li>
+                                                        <li><a href="https://bsky.app/profile/pandocreek.com">Bluesky</a></li>
+                                                        <li><a href="https://github.com/nachoesmite">Github</a></li>
+                                                        <li><a href="https://www.linkedin.com/in/iesmite/">Linkedin</a></li>
                                         </ul>
                                 </div><!-- /.blogroll -->
                                 <div class="social">
@@ -47,8 +175,6 @@
                                         <ul>
                                                         <li><a href="https://pandocreek.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-                                                        <li><a href="#">You can add links in your config file</a></li>
-                                                        <li><a href="#">Another social link</a></li>
                                         </ul>
                                 </div><!-- /.social -->
                 </section><!-- /#extras -->
