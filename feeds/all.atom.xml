@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>pandocreek</title><link href="https://pandocreek.com/" rel="alternate"></link><link href="https://pandocreek.com/feeds/all.atom.xml" rel="self"></link><id>https://pandocreek.com/</id><updated>2024-11-13T10:20:00-03:00</updated><entry><title>Beam Search</title><link href="https://pandocreek.com/beam-search.html" rel="alternate"></link><published>2024-11-13T10:20:00-03:00</published><updated>2024-11-13T10:20:00-03:00</updated><author><name>nacho esmite</name></author><id>tag:pandocreek.com,2024-11-13:/beam-search.html</id><summary type="html">&lt;p&gt;Hi folks! In this post I'm doing a summary of Beam Search so I can understand it better and hopefully help someone :) 
-Beam search is a heuristic search algorithm used in sequence problems such as translation, text generation, or voice recognition. It is an improvement
+<feed xmlns="http://www.w3.org/2005/Atom"><title>pandocreek</title><link href="https://pandocreek.com/" rel="alternate"></link><link href="https://pandocreek.com/feeds/all.atom.xml" rel="self"></link><id>https://pandocreek.com/</id><updated>2024-11-13T10:20:00-03:00</updated><entry><title>Beam Search</title><link href="https://pandocreek.com/beam-search.html" rel="alternate"></link><published>2024-11-13T10:20:00-03:00</published><updated>2024-11-13T10:20:00-03:00</updated><author><name>nacho esmite</name></author><id>tag:pandocreek.com,2024-11-13:/beam-search.html</id><summary type="html">&lt;p&gt;Hi folks! In this post I'm doing a summary of Beam Search so I can understand it better and hopefully help someone :) &lt;/p&gt;
+&lt;p&gt;Beam search is a heuristic algorithm used in sequence models for tasks like translation, text generation, and voice recognition. It is an improvement
 over breadth-first search.&lt;/p&gt;
-&lt;h2&gt;How it …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;Hi folks! In this post I'm doing a summary of Beam Search so I can understand it better and hopefully help someone :) 
-Beam search is a heuristic search algorithm used in sequence problems such as translation, text generation, or voice recognition. It is an improvement
+&lt;h2&gt;How it …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;Hi folks! In this post I'm doing a summary of Beam Search so I can understand it better and hopefully help someone :) &lt;/p&gt;
+&lt;p&gt;Beam search is a heuristic algorithm used in sequence models for tasks like translation, text generation, and voice recognition. It is an improvement
 over breadth-first search.&lt;/p&gt;
 &lt;h2&gt;How it works?&lt;/h2&gt;
 &lt;p&gt;At each step of the process, &lt;em&gt;beam search&lt;/em&gt; keeps a limited set of sequences that seem promising given a score or probability. 
