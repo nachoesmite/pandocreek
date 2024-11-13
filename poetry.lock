@@ -266,6 +266,23 @@ watchfiles = ">=0.21.0"
 markdown = ["markdown (>=3.1)"]
 
 [[package]]
+name = "pelican-render-math"
+version = "1.0.4"
+description = "Render mathematics in Pelican site content"
+optional = false
+python-versions = "~=3.9"
+files = [
+    {file = "pelican_render_math-1.0.4-py3-none-any.whl", hash = "sha256:a03b910790523c9160e14e02e920d5cab6864120df0d60708e95ff09d5a49e77"},
+    {file = "pelican_render_math-1.0.4.tar.gz", hash = "sha256:6a8f331bdb875a80a8349b59f5bc8e5749ee3d3802e6f2c3164eee7f90253a29"},
+]
+
+[package.dependencies]
+pelican = ">=4.5"
+
+[package.extras]
+markdown = ["markdown (>=3.4)"]
+
+[[package]]
 name = "pygments"
 version = "2.18.0"
 description = "Pygments is a syntax highlighting package written in Python."
@@ -464,4 +481,4 @@ anyio = ">=3.0.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8a4e77bb49382c532bf57f243f775cce4e77ab210c690c39375ba0d87f0f8d69"
+content-hash = "20781a3ae62e4fa839be996cafdf34e209667f7175fb0a0e8dfcd04ed5b867ab"

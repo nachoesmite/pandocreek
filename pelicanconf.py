@@ -1,11 +1,16 @@
 AUTHOR = 'nacho esmite'
 SITENAME = 'pandocreek'
 SITEURL = ""
-
+STATIC_PATHS = ['draws', 'images']
 PATH = "content"
-
+# Save path for author pages
+AUTHOR_SAVE_AS = 'author/{slug}.html'
+# URL for author pages
+AUTHOR_URL = 'author/{slug}.html'
 TIMEZONE = 'America/Montevideo'
-
+MENUITEMS = (
+    ('Home', '/'),
+)
 DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
@@ -24,17 +29,17 @@ MARKDOWN = {
 }
 # Blogroll
 LINKS = (
-    ("Pelican", "https://getpelican.com/"),
-    ("Python.org", "https://www.python.org/"),
-    ("Jinja2", "https://palletsprojects.com/p/jinja/"),
-    ("You can modify those links in your config file", "#"),
+    ("Bluesky", "https://bsky.app/profile/pandocreek.com"),
+    ("Github", "https://github.com/nachoesmite"),
+    ("Linkedin", "https://www.linkedin.com/in/iesmite/"),
 )
 
 # Social widget
-SOCIAL = (
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
-)
+#SOCIAL = (
+#    ("Bluesky", "https://bsky.app/profile/pandocreek.com"),
+#    ("Github", "https://github.com/nachoesmite"),
+#    ("Linkedin", "https://www.linkedin.com/in/iesmite/"),
+#)
 
 DEFAULT_PAGINATION = 10
 

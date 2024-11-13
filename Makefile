@@ -49,6 +49,8 @@ help:
 	@echo '                                                                          '
 
 html:
+	rm -rf outout/draws
+	cp -r draws output/
 	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
 
 clean:
