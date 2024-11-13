@@ -1,8 +1,10 @@
 AUTHOR = 'nacho esmite'
 SITENAME = 'pandocreek'
-SITEURL = ""
+SITEDESCRIPTION = 'A ML Engineering Journey'
+SITEURL = "https://pandocreek.com"
 STATIC_PATHS = ['draws', 'images']
 PATH = "content"
+THEME = "themes/notmyidea"
 # Save path for author pages
 AUTHOR_SAVE_AS = 'author/{slug}.html'
 # URL for author pages
@@ -12,6 +14,10 @@ MENUITEMS = (
     ('Home', '/'),
 )
 DEFAULT_LANG = 'en'
+
+# Open Graph Metadata
+OG_LOCALE = 'en_US'
+OG_TYPE = 'website'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

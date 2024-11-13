@@ -76,6 +76,8 @@ publish:
 
 github: publish
 	cp CNAME $(OUTPUTDIR)/CNAME
+	rm -rf outout/draws
+	cp -r draws output/
 	ghp-import -m "$(GITHUB_PAGES_COMMIT_MESSAGE)" -b $(GITHUB_PAGES_BRANCH) "$(OUTPUTDIR)" --no-jekyll
 	git push origin $(GITHUB_PAGES_BRANCH)
 

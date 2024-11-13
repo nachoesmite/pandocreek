@@ -1,9 +1,12 @@
 Title: Beam Search
 Date: 2024-11-13 10:20
 Category: Neural Networks
+Image: /draws/beam_search.png
+Subtitle: Beam search for dummies.
 
 Hi folks! In this post I'm doing a summary of Beam Search so I can understand it better and hopefully help someone :) 
-Beam search is a heuristic search algorithm used in sequence problems such as translation, text generation, or voice recognition. It is an improvement
+
+Beam search is a heuristic algorithm used in sequence models for tasks like translation, text generation, and voice recognition. It is an improvement
 over breadth-first search.
 
 ## How it works?
